@@ -30,7 +30,7 @@
 
 你需要一个能够使用技能文件夹、读取本地文件的 AI 助手，以及一个用于导入问卷的 Qualtrics 账号。
 
-1. 从本仓库下载 `qsf-file-convertor` 文件夹。请将 `SKILL.md`、`assets` 和 `references` 保存在同一个文件夹中。
+1. 在本仓库页面选择 **Code → Download ZIP**，解压下载的 ZIP 文件，并将解压后的文件夹重命名为 `qsf-file-convertor`。请将 `SKILL.md`、`assets` 和 `references` 保存在同一个文件夹中。
 2. 将整个文件夹放入用户目录下的 `.agents/skills`。在 Windows 上，路径通常如下：
 
    ```text

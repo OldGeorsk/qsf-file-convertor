@@ -30,7 +30,7 @@ Some advanced survey features need adjustments inside Qualtrics. Importing a QSF
 
 You need an AI assistant that can use skill folders and read local files, plus a Qualtrics account to import the finished survey.
 
-1. Download the `qsf-file-convertor` folder from this repository. Keep `SKILL.md`, `assets`, and `references` together.
+1. On this GitHub page, choose **Code → Download ZIP** and extract the ZIP file. Rename the extracted folder to `qsf-file-convertor`. Keep `SKILL.md`, `assets`, and `references` together.
 2. Put the folder inside `.agents/skills` in your user folder. On Windows, the location usually looks like this:
 
    ```text
