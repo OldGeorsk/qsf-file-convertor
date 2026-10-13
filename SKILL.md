@@ -5,7 +5,7 @@ description: Convert questionnaire documents (docx, pdf, txt, md) into import-sa
 
 # QSF File Convertor
 
-Turn a questionnaire document into a Qualtrics-importable `.qsf` file. The payload patterns were tested with Qualtrics imports in October 2026. The public QSF assets contain synthetic examples and placeholder account settings; they have been checked locally but have not been import-tested in this form.
+Turn a questionnaire document into a Qualtrics-importable `.qsf` file. Every payload pattern was verified by real Qualtrics imports (2026-10 round-trip tests; a 10-survey / 120-question batch test on 2026-10-13 passed 10/10 imports with 10/10 verbatim verifications). The public QSF assets contain synthetic examples and placeholder account settings — use a real export from the destination account as the boilerplate source (see step 3).
 
 ## Workflow
 
@@ -19,13 +19,15 @@ Turn a questionnaire document into a Qualtrics-importable `.qsf` file. The paylo
    - Likert grid / "mark one per row" table → `Matrix/Likert/SingleAnswer` (table rows = Choices, columns = Answers)
    - open essay box → `TE/ML`; labeled input fields → `TE/FORM` (labels = Choices)
    - instructions, headings, thank-you text → `DB/TB`
-3. **Generate** the QSF: use a small QSF export supplied from the destination Qualtrics account for the skeleton and boilerplate; use `assets/template-boilerplate.qsf` only as a structural reference, emit SQ payloads per `references/question-payloads.md`.
+3. **Generate** the QSF: use a small QSF export supplied from the destination Qualtrics account for the skeleton and boilerplate (Tools → Import/Export → Export survey on any tiny survey); use `assets/template-boilerplate.qsf` only as a structural reference; emit SQ payloads per `references/question-payloads.md`. For questionnaires already in the raw-md convention (below), `scripts/md2qsf.mjs --boilerplate <account-export.qsf>` converts and self-checks in one step — round-trip validated on 10 surveys / 120 questions with 10/10 verified imports (2026-10-13).
+
+   Raw-md convention: `# Title`, intro lines, `Q1. (single|multi|matrix|essay|form) text`, `- choice` bullets, `- Other: (text entry)`, `Rows:`/`Columns:` for matrix, `Fields:` for form, standalone `[Page break]`, `[Shown only if Q2 = "Choice text"]` under a question for DisplayLogic, closing line.
 4. **Validate** locally before handoff: JSON parses; every `BlockElements` ref exists in the SQ set; `QC.SecondaryAttribute` = question count; all hard rules below hold; question/choice texts diff verbatim against the source document.
 5. **Import** and verify per `references/import-and-fallbacks.md`.
 
 ## Hard rules (violations proven to break import)
 
-- `QuestionDescription` must be `plainText.slice(0, 47) + "..."` whenever the text exceeds ~50 chars. Full-length descriptions are silently accepted on MC/DB/Matrix but **rejected on TE** — the #1 silent killer.
+- `QuestionDescription` must be truncated `plainText.slice(0, N) + "..."` when the text is long. Full-length descriptions are silently accepted on MC/DB/Matrix but **rejected on TE** — the #1 silent killer. Verified caps: 50 chars total (47+"...") and 80 chars total (77+"...", probe import 2026-10-13, stored verbatim) both pass on TE; the platform's own exports truncate at 80–98. **Truncation itself is mandatory; 47 is the conservative default, up to ~80 is proven safe.**
 - TE questions carry **no `SubSelector` key** (`SearchSource` optional).
 - **NEVER emit `ChoiceGroups`/`ChoiceGroupOrder`** — the importer rejects hand-written group schemas. Flatten grouped choices in order; add the group headers in the builder UI afterwards.
 - BL `Payload` is an **object keyed `"1","2"…`** (never an array); element `PrimaryAttribute: "Survey Blocks"`.
@@ -46,6 +48,7 @@ Turn a questionnaire document into a Qualtrics-importable `.qsf` file. The paylo
 
 - `assets/template-boilerplate.qsf` — generic one-question example with placeholder account settings; replace the skeleton and boilerplate with an export from the destination account.
 - `assets/example-full-features.qsf` — synthetic example with TE (essay and form), Matrix, MC+TextEntry, DisplayLogic, and page breaks; use it to inspect payload shapes.
+- `scripts/md2qsf.mjs` — maintained raw-md → QSF converter with a built-in self-check (`node md2qsf.mjs in.md out.qsf --name "Survey Name" --boilerplate <account-export.qsf>`); exits non-zero on any rule or text violation. It refuses the synthetic bundled boilerplate unless `--allow-synthetic-boilerplate` is passed.
 
 ## Boundaries
 

@@ -11,27 +11,34 @@
 | Error | Meaning |
 | --- | --- |
 | `Error parsing file: The file does not appear to be a valid survey` | Structural: skeleton/syntax broken (e.g. BL payload as array, missing boilerplate). |
-| `Error calling service` / "An error occurred while uploading the file" | A content rule was violated: TE `QuestionDescription` > ~50 chars, TE with `SubSelector`, or `ChoiceGroups` present. Fix payload and retry. |
+| `Error calling service` / "An error occurred while uploading the file" | A content rule was violated: an **un-truncated** long `QuestionDescription` on TE, TE with `SubSelector`, or `ChoiceGroups` present. Fix payload and retry. |
 
 Isolate a stubborn failure by importing a single-question probe file containing just the suspect feature (same skeleton, one SQ).
 
 ## Browser-automation import (when a Qualtrics session is available in an in-app browser)
 
-IAB cannot use native file choosers; use this verified channel instead:
+New-builder reality (verified 2026-10-13 batch test, 10/10 imports): the builder's **Tools menu does not open** under in-app-browser synthesized events (role clicks, coordinate clicks, node-id clicks all fail); the classic builder URL (`/Q/EditSection/Blocks`) redirects to the new builder; and the old `POST /Q/EditSection/Blocks/Ajax/ImportSurveyProject` endpoint returns 403 (needs app-side headers). Use the catalog flow instead:
 
 1. Serve the QSF locally: tiny Node http server returning the file with headers `Access-Control-Allow-Origin: *` and `Access-Control-Allow-Private-Network: true`.
-2. In the builder page, open Tools → Import/Export → Import survey (the submenu may need a hover, not a click; menu/dialog items are click-reachable via coordinates from `getBoundingClientRect()` when role-locator clicks time out).
-3. In page context: fetch the file, then set it programmatically:
+2. Navigate to `https://<brand>.qualtrics.com/app/catalog/projects?offeringId=Survey` (or homepage → "Create a new project" → Survey). Wait for the "Get started" button, click it — the "Create a new project" dialog opens.
+3. In the dialog: combobox "How do you want to start your survey?" → select **"Import a QSF file"**.
+4. Set the file programmatically (in-app browsers have no native file chooser):
    ```js
    const dt = new DataTransfer();
-   dt.items.add(new File([text], "survey.qsf", { type: "application/json" }));
+   dt.items.add(new File([text], "survey.qsf", { type: "application/json" })); // text fetched from the local server
    const input = document.querySelector("input[type=file]");
    input.files = dt.files;
    input.dispatchEvent(new Event("input", { bubbles: true }));
    input.dispatchEvent(new Event("change", { bubbles: true }));
    ```
-4. Click Import. Success = page navigates to the new survey's builder; failure = "error occurred" banner stays (read the table above).
-5. Name test surveys `ZZ …` so they are easy to delete.
+5. Fill the project Name (React input — use the native value-setter + `input` event), then click "Create project". Success = page navigates to the new survey's builder URL (`…/survey-builder/SV_…/edit`).
+6. Name test surveys `ZZ …` so they are easy to delete.
+
+Robustness notes: the catalog SPA renders progressively — don't use fixed sleeps. Run the whole dialog dance as an **in-page async routine** that polls for each element (`Get started` → combobox → option → file input → name → enabled `Create project`, ~10–20s budgets), taps each via `mousedown`+`mouseup`+`click()` events, and reports its step log from a `window` variable. Triggering it fire-and-forget and polling sidesteps evaluate-time caps; after the Create click the page navigates, so read the new SurveyID from the URL.
+
+## Verifying an import (readback channel)
+
+From any same-origin Qualtrics page: `GET /survey-editor-service/v2/surveys/{SV_id}` with `cache: "no-store"` returns the live model — survey name, question count, and per-block `Standard[].BlockElements[]`; each question element carries `QuestionDefinition` (= the SQ payload) and non-question elements are page breaks. Diff `DataExportTag`, type/selector, plain text, `ChoiceOrder`/`Choices` (+`TextEntry`), `AnswerOrder`/`Answers`, and `DisplayLogic` presence against the source QSF. This verified all 120 questions of the 2026-10-13 test with zero mismatches.
 
 ## Official fallback: Advanced TXT import format
 

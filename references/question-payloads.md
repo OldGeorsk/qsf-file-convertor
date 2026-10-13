@@ -2,7 +2,7 @@
 
 Common rules for every payload:
 
-- `QuestionDescription`: **always** `plainText.slice(0, 47) + "..."` when the plain question text exceeds 50 chars; otherwise the full text. (Full-length descriptions break TE import.)
+- `QuestionDescription`: **always** a truncated `plainText.slice(0, N) + "..."` when the plain question text is long; otherwise the full text. Caps verified by real imports: 47+"..." (50 total) and 77+"..." (80 total, stored verbatim — probe 2026-10-13); platform exports truncate at 80–98. Never leave a full-length description on TE (import-rejected). 47 stays the default; up to ~80 is proven safe when more context is needed.
 - Always include: `DataExportTag` (displayed number, e.g. "Q1"), `DataVisibility: {"Private":false,"Hidden":false}`, `Configuration: {"QuestionDescriptionOption":"UseText"}`, `Validation: {"Settings":{"ForceResponse":"OFF","Type":"None"}}`, `Language: []`, `GradingData: []` (not on DB), `NextChoiceId` (max choice id + 1), `NextAnswerId` (max answer id + 1; 1 unless Matrix).
 - `QuestionText`: HTML allowed — use `<br>` for line breaks.
 

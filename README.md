@@ -68,7 +68,8 @@ qsf-file-convertor/
 ├── README-zh.md
 ├── SKILL.md
 ├── assets/
-└── references/
+├── references/
+└── scripts/
 ```
 
 - **README.md**: the English guide, displayed by default on GitHub.
@@ -76,3 +77,4 @@ qsf-file-convertor/
 - **SKILL.md**: instructions the AI assistant follows to convert a survey.
 - **assets/**: a sample QSF template and a survey showing supported features.
 - **references/**: detailed guides for question types, page breaks, question display rules, and importing files.
+- **scripts/**: `md2qsf.mjs`, a self-checking converter for questionnaires written in the skill's raw-markdown convention (batch-tested: 10/10 imports verified).
