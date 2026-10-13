@@ -1,0 +1,238 @@
+{
+  "SurveyEntry": {
+    "SurveyID": "SV_example1",
+    "SurveyName": "Example Survey Template",
+    "SurveyDescription": null,
+    "SurveyOwnerID": "UR_example2",
+    "SurveyBrandID": "example",
+    "DivisionID": null,
+    "SurveyLanguage": "EN",
+    "SurveyActiveResponseSet": "RS_example3",
+    "SurveyStatus": "Inactive",
+    "SurveyStartDate": "0000-00-00 00:00:00",
+    "SurveyExpirationDate": "0000-00-00 00:00:00",
+    "SurveyCreationDate": "2026-01-01 00:00:00",
+    "CreatorID": "UR_example2",
+    "LastModified": "2026-01-01 00:00:00",
+    "LastAccessed": "0000-00-00 00:00:00",
+    "LastActivated": "0000-00-00 00:00:00",
+    "Deleted": null
+  },
+  "SurveyElements": [
+    {
+      "SurveyID": "SV_example1",
+      "Element": "BL",
+      "PrimaryAttribute": "Survey Blocks",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "1": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Example Questions",
+          "ID": "BL_exampleMain",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "FL",
+      "PrimaryAttribute": "Survey Flow",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "Flow": [
+          {
+            "ID": "BL_exampleMain",
+            "Type": "Standard",
+            "FlowID": "FL_3"
+          }
+        ],
+        "Properties": {
+          "Count": 3
+        },
+        "FlowID": "FL_1",
+        "Type": "Root"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "PL",
+      "PrimaryAttribute": "Preview Link",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "PreviewType": "Brand",
+        "PreviewID": "00000000-0000-0000-0000-000000000000"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "PROJ",
+      "PrimaryAttribute": "CORE",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": "1.1.0",
+      "Payload": {
+        "ProjectCategory": "CORE",
+        "SchemaVersion": "1.1.0"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "QC",
+      "PrimaryAttribute": "Survey Question Count",
+      "SecondaryAttribute": "1",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "QG",
+      "PrimaryAttribute": "QG_example6",
+      "SecondaryAttribute": "Default Quota Group",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "ID": "QG_example6",
+        "Name": "Default Quota Group",
+        "Selected": true,
+        "MultipleMatch": "PlaceInAll",
+        "Public": false,
+        "Quotas": []
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "QGO",
+      "PrimaryAttribute": "QGO_QuotaGroupOrder",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": [
+        "QG_example6"
+      ]
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "RS",
+      "PrimaryAttribute": "RS_example3",
+      "SecondaryAttribute": "Default Response Set",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SCO",
+      "PrimaryAttribute": "Scoring",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "ScoringCategories": [],
+        "ScoringCategoryGroups": [],
+        "ScoringSummaryCategory": null,
+        "ScoringSummaryAfterQuestions": 0,
+        "ScoringSummaryAfterSurvey": 0,
+        "DefaultScoringCategory": null,
+        "AutoScoringCategory": null
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SO",
+      "PrimaryAttribute": "Survey Options",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "BackButton": "false",
+        "SaveAndContinue": "true",
+        "SurveyProtection": "PublicSurvey",
+        "BallotBoxStuffingPrevention": "false",
+        "NoIndex": "Yes",
+        "SecureResponseFiles": "true",
+        "SurveyExpiration": "None",
+        "SurveyTermination": "DefaultMessage",
+        "Header": "",
+        "Footer": "",
+        "ProgressBarDisplay": "None",
+        "PartialData": "+1 week",
+        "ValidationMessage": "",
+        "PreviousButton": "",
+        "NextButton": "",
+        "SurveyTitle": "Example Survey",
+        "SkinLibrary": "example",
+        "SkinType": "component",
+        "Skin": {
+          "brandingId": null,
+          "templateId": "*simple",
+          "overrides": null
+        },
+        "NewScoring": 1,
+        "SurveyMetaDescription": "A generic survey example."
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "STAT",
+      "PrimaryAttribute": "Survey Statistics",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "MobileCompatible": true,
+        "ID": "Survey Statistics"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID1",
+      "SecondaryAttribute": "Would you recommend this activity?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "QuestionText": "Would you recommend this activity?",
+        "QuestionDescription": "Would you recommend this activity?",
+        "QuestionID": "QID1",
+        "DataExportTag": "Q1",
+        "Choices": {
+          "1": {
+            "Display": "Yes"
+          },
+          "2": {
+            "Display": "No"
+          },
+          "3": {
+            "Display": "Not sure"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2,
+          3
+        ],
+        "NextChoiceId": 4,
+        "NextAnswerId": 1
+      }
+    }
+  ]
+}

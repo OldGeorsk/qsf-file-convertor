@@ -1,0 +1,545 @@
+{
+  "SurveyEntry": {
+    "SurveyID": "SV_example1",
+    "SurveyName": "Example Survey Features",
+    "SurveyDescription": null,
+    "SurveyOwnerID": "UR_example2",
+    "SurveyBrandID": "example",
+    "DivisionID": null,
+    "SurveyLanguage": "EN",
+    "SurveyActiveResponseSet": "RS_example3",
+    "SurveyStatus": "Inactive",
+    "SurveyStartDate": "0000-00-00 00:00:00",
+    "SurveyExpirationDate": "0000-00-00 00:00:00",
+    "SurveyCreationDate": "2026-01-01 00:00:00",
+    "CreatorID": "UR_example2",
+    "LastModified": "2026-01-01 00:00:00",
+    "LastAccessed": "0000-00-00 00:00:00",
+    "LastActivated": "0000-00-00 00:00:00",
+    "Deleted": null
+  },
+  "SurveyElements": [
+    {
+      "SurveyID": "SV_example1",
+      "Element": "BL",
+      "PrimaryAttribute": "Survey Blocks",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "1": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Example Questions",
+          "ID": "BL_exampleMain",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID1"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID2"
+            },
+            {
+              "Type": "Page Break"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID3"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID4"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID5"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID6"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID7"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "FL",
+      "PrimaryAttribute": "Survey Flow",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "Flow": [
+          {
+            "ID": "BL_exampleMain",
+            "Type": "Standard",
+            "FlowID": "FL_3"
+          }
+        ],
+        "Properties": {
+          "Count": 3
+        },
+        "FlowID": "FL_1",
+        "Type": "Root"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "PL",
+      "PrimaryAttribute": "Preview Link",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "PreviewType": "Brand",
+        "PreviewID": "00000000-0000-0000-0000-000000000000"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "PROJ",
+      "PrimaryAttribute": "CORE",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": "1.1.0",
+      "Payload": {
+        "ProjectCategory": "CORE",
+        "SchemaVersion": "1.1.0"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "QC",
+      "PrimaryAttribute": "Survey Question Count",
+      "SecondaryAttribute": "7",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "QG",
+      "PrimaryAttribute": "QG_example6",
+      "SecondaryAttribute": "Default Quota Group",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "ID": "QG_example6",
+        "Name": "Default Quota Group",
+        "Selected": true,
+        "MultipleMatch": "PlaceInAll",
+        "Public": false,
+        "Quotas": []
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "QGO",
+      "PrimaryAttribute": "QGO_QuotaGroupOrder",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": [
+        "QG_example6"
+      ]
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "RS",
+      "PrimaryAttribute": "RS_example3",
+      "SecondaryAttribute": "Default Response Set",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SCO",
+      "PrimaryAttribute": "Scoring",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "ScoringCategories": [],
+        "ScoringCategoryGroups": [],
+        "ScoringSummaryCategory": null,
+        "ScoringSummaryAfterQuestions": 0,
+        "ScoringSummaryAfterSurvey": 0,
+        "DefaultScoringCategory": null,
+        "AutoScoringCategory": null
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SO",
+      "PrimaryAttribute": "Survey Options",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "BackButton": "false",
+        "SaveAndContinue": "true",
+        "SurveyProtection": "PublicSurvey",
+        "BallotBoxStuffingPrevention": "false",
+        "NoIndex": "Yes",
+        "SecureResponseFiles": "true",
+        "SurveyExpiration": "None",
+        "SurveyTermination": "DefaultMessage",
+        "Header": "",
+        "Footer": "",
+        "ProgressBarDisplay": "None",
+        "PartialData": "+1 week",
+        "ValidationMessage": "",
+        "PreviousButton": "",
+        "NextButton": "",
+        "SurveyTitle": "Example Survey",
+        "SkinLibrary": "example",
+        "SkinType": "component",
+        "Skin": {
+          "brandingId": null,
+          "templateId": "*simple",
+          "overrides": null
+        },
+        "NewScoring": 1,
+        "SurveyMetaDescription": "A generic survey example."
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "STAT",
+      "PrimaryAttribute": "Survey Statistics",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "MobileCompatible": true,
+        "ID": "Survey Statistics"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID1",
+      "SecondaryAttribute": "This example demonstrates common survey questio...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "QuestionText": "This example demonstrates common survey question types.",
+        "QuestionDescription": "This example demonstrates common survey questio...",
+        "QuestionID": "QID1",
+        "DataExportTag": "Q1"
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID2",
+      "SecondaryAttribute": "Did you attend the activity?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "QuestionText": "Did you attend the activity?",
+        "QuestionDescription": "Did you attend the activity?",
+        "QuestionID": "QID2",
+        "DataExportTag": "Q2",
+        "Choices": {
+          "1": {
+            "Display": "Yes"
+          },
+          "2": {
+            "Display": "No"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2
+        ],
+        "NextChoiceId": 3,
+        "NextAnswerId": 1
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID3",
+      "SecondaryAttribute": "Which activities did you enjoy? Select all that...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionType": "MC",
+        "Selector": "MAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "QuestionText": "Which activities did you enjoy? Select all that apply.",
+        "QuestionDescription": "Which activities did you enjoy? Select all that...",
+        "QuestionID": "QID3",
+        "DataExportTag": "Q3",
+        "Choices": {
+          "1": {
+            "Display": "Reading"
+          },
+          "2": {
+            "Display": "Discussion"
+          },
+          "3": {
+            "Display": "Practice"
+          },
+          "4": {
+            "Display": "Other:",
+            "TextEntry": "true"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "NextChoiceId": 5,
+        "NextAnswerId": 1
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID4",
+      "SecondaryAttribute": "How much do you agree with each statement?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "TextPosition": "inline",
+          "RepeatHeaders": "none",
+          "WhiteSpace": "OFF",
+          "MobileFirst": false
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "QuestionText": "How much do you agree with each statement?",
+        "QuestionDescription": "How much do you agree with each statement?",
+        "QuestionID": "QID4",
+        "DataExportTag": "Q4",
+        "Choices": {
+          "1": {
+            "Display": "The instructions were clear."
+          },
+          "2": {
+            "Display": "The activity was useful."
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2
+        ],
+        "Answers": {
+          "1": {
+            "Display": "Strongly disagree"
+          },
+          "2": {
+            "Display": "Disagree"
+          },
+          "3": {
+            "Display": "Neutral"
+          },
+          "4": {
+            "Display": "Agree"
+          },
+          "5": {
+            "Display": "Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "NextChoiceId": 3,
+        "NextAnswerId": 6
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID5",
+      "SecondaryAttribute": "What would you improve about the activity? Plea...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "DefaultChoices": false,
+        "QuestionType": "TE",
+        "Selector": "ML",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "SearchSource": {
+          "AllowFreeResponse": "false"
+        },
+        "QuestionText": "What would you improve about the activity? Please share your suggestions.",
+        "QuestionDescription": "What would you improve about the activity? Plea...",
+        "QuestionID": "QID5",
+        "DataExportTag": "Q5",
+        "NextChoiceId": 1,
+        "NextAnswerId": 1,
+        "DisplayLogic": {
+          "0": {
+            "0": {
+              "LogicType": "Question",
+              "QuestionID": "QID2",
+              "QuestionIsInLoop": "no",
+              "ChoiceLocator": "q://QID2/SelectableChoice/1",
+              "Operator": "Selected",
+              "QuestionIDFromLocator": "QID2",
+              "LeftOperand": "q://QID2/SelectableChoice/1",
+              "Type": "Expression",
+              "Description": "Show if Yes is selected."
+            },
+            "Type": "If"
+          },
+          "Type": "BooleanExpression",
+          "inPage": false
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID6",
+      "SecondaryAttribute": "Optional: describe your preferred activity.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "DefaultChoices": false,
+        "QuestionType": "TE",
+        "Selector": "FORM",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "QuestionText": "Optional: describe your preferred activity.",
+        "QuestionDescription": "Optional: describe your preferred activity.",
+        "QuestionID": "QID6",
+        "DataExportTag": "Q6",
+        "NextChoiceId": 3,
+        "NextAnswerId": 1,
+        "Choices": {
+          "1": {
+            "Display": "Activity:"
+          },
+          "2": {
+            "Display": "Reason:"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "SurveyID": "SV_example1",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID7",
+      "SecondaryAttribute": "Thank you for your feedback.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "QuestionText": "Thank you for your feedback.",
+        "QuestionDescription": "Thank you for your feedback.",
+        "QuestionID": "QID7",
+        "DataExportTag": "Q7"
+      }
+    }
+  ]
+}
